@@ -437,6 +437,7 @@ a {
   }
   #container #mobile-nav {
     display: block;
+    background: #32a6a8;
   }
   #container #page-nav .extend {
     opacity: 1;
@@ -585,7 +586,7 @@ a {
   cursor: default;
 }
 #header .header-menu li a {
-  color: #dfff00;
+  color: #fff;
   font-family: Verdana, Arial, Helvetica, sans-serif;
   font-size: 14px;
   letter-spacing: 2px;
@@ -627,7 +628,7 @@ a {
   box-shadow: 0px 0px 10px 2px #cbfaff;
   border-radius: 40px;
   cursor: default;
-  color: #dfff00;
+  color: #fff;
   font-family: Verdana, Arial, Helvetica, sans-serif;
   font-size: 12px;
   letter-spacing: 2px;
@@ -847,7 +848,7 @@ a {
 }
 .archives-wrap {
   position: relative;
-  margin: 0 30px;
+  margin: 20px 30px;
   padding-right: 60px;
   -webkit-box-shadow: 0px 0px 30px 10px #76827f;
   -moz-box-shadow: 0px 0px 30px 10px #76827f;

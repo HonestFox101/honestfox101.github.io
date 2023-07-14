@@ -39,7 +39,7 @@ avatar: https://avatars.githubusercontent.com/u/76041876?v=4
 
 # NetEase Cloud Music (wangyiyun of course)
 music:
-  enable: true
+  enable: false
   # id of a certain music on NetEase Cloud Music
   id: 1928114538
 

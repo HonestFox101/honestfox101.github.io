@@ -14,15 +14,17 @@ Spine是一个用于构建2D动画和游戏的跨平台骨骼动画软件。它�
 # 如何卸载
 1. 打开系统注册表编辑器
 2. 删除以下路径的注册项：
-  ---
+  ```
   计算机\HKEY_CURRENT_USER\Software\JavaSoft\Prefs\com\esotericsoftware
-  ---
+  ```
 3. 删除软件本体
 
 # 下载地址
----
+```
 magnet:?xt=urn:btih:044970921C809删掉
 42411C23692051338179FE663F1&tr=http%3A%2F%2Fbt.中
 t-ru.org%2Fann%3Fmagnet&dn=Spine文
 %202D%20v3.8.75%20PRO%20x64%20%5B04-04-2021%2C%20Multi%20%2B%20RUS%5D
+```
 ---
+仅供学习交流，请多多支持正版

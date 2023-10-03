@@ -3,6 +3,7 @@ title: Leonardo免费使用教程
 date: 2022-11-05 15:06:25
 tags: 软件分享
 ---
+![leonardo](/images/leonardo.png)
 # 前言
 Leonardo是专为windows二和一平板设计的位图绘画软件，它在windows平板以及数位屏上的书写延迟远远低于Clip Studio Paint（优动漫）、Photoshop等传统绘画软件。以下是免费使用流程
 

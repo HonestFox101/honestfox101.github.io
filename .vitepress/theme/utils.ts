@@ -81,7 +81,7 @@ function serializeHeader(h: Element): string {
   return ret.trim();
 }
 
-export function resolveHeaders(headers: any, range?: any): any {
+export function resolveHeaders(headers: any[], range?: any): any {
   if (range === false) {
     return [];
   }

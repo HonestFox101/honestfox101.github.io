@@ -24,7 +24,7 @@ import { shallowRef, ref } from "vue";
 import { getHeaders } from "../utils";
 
 const { frontmatter, theme } = useData();
-const headers = shallowRef<any>([]);
+const headers = shallowRef<any[]>([]);
 const showIndent = ref(false);
 onContentUpdated(() => {
   headers.value = getHeaders(frontmatter.value.outline ?? theme.value.outline);

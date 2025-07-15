@@ -1,7 +1,6 @@
 import {globby} from 'globby';
 import matter from "gray-matter";
 import fs from "fs-extra";
-import path from "path";
 
 export async function getPosts() {
   let paths = await getPostMDFilePaths();
@@ -16,17 +15,13 @@ export async function getPosts() {
       };
     })
   );
-  posts.sort(_compareDate);
+  posts.sort((a, b) => a.frontMatter.date < b.frontMatter.date ? 1 : -1);
   return posts;
 }
 
 function _convertDate(date = new Date().toString()) {
   const json_date = new Date(date).toJSON();
   return json_date.split("T")[0];
-}
-
-function _compareDate(obj1, obj2) {
-  return obj1.frontMatter.date < obj2.frontMatter.date ? 1 : -1;
 }
 
 async function getPostMDFilePaths() {

@@ -27,14 +27,11 @@ import { ref } from "vue";
 import ShareCard from "./ShareCard.vue";
 import FireWorksAnimation from "./FireWorksAnimation.vue";
 import { useData, withBase } from "vitepress";
-interface post {
-  regularPath: string;
-  frontMatter: object;
-}
 const { theme } = useData();
 
+type Post = typeof theme.value.posts[0]
 // get posts
-let postsAll = theme.value.posts || [];
+let postsAll = theme.value.posts || ([] as Post[]);
 // get postLength
 let postLength = theme.value.postLength;
 // get pageSize
@@ -49,11 +46,11 @@ pagesNum = parseInt(pagesNum.toString());
 //pageCurrent
 let pageCurrent = ref(1);
 // filter index post
-postsAll = postsAll.filter((item: post) => {
+postsAll = postsAll.filter((item) => {
   return item.regularPath.indexOf("index") < 0;
 });
 // pagination
-let allMap = {};
+let allMap: Record<number, Post[]> = {};
 for (let i = 0; i < pagesNum; i++) {
   allMap[i] = [];
 }
@@ -65,11 +62,11 @@ for (let i = 0; i < postsAll.length; i++) {
   allMap[index].push(postsAll[i]);
 }
 // set posts
-let posts = ref([]);
+const posts = ref<typeof postsAll>([]);
 posts.value = allMap[pageCurrent.value - 1];
 
 // click pagination
-const go = (i) => {
+const go = (i: any) => {
   pageCurrent.value = i;
   posts.value = allMap[pageCurrent.value - 1];
 };

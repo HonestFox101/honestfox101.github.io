@@ -2,6 +2,7 @@ import { getPosts, getPostLength } from "./theme/serverUtils";
 import { buildBlogRSS } from "./theme/rss";
 import { transformerTwoslash } from "@shikijs/vitepress-twoslash";
 import mathjax3 from "markdown-it-mathjax3";
+import { SiteData } from "vitepress";
 
 async function config() {
   return {
@@ -40,7 +41,7 @@ async function config() {
       ],
     ],
     // cleanUrls: "with-subfolders",
-    lastUpdated: false,
+    // lastUpdated: false,
     themeConfig: {
       // repo: "clark-cui/homeSite",
       logo: "/horse.svg",
@@ -79,7 +80,7 @@ async function config() {
         //   link: "mailto:rongchuancui@gmail.com",
         // },
       ],
-      // outline: 2, //设置右侧aside显示层级
+      outline: 2, //设置右侧aside显示层级
       aside: false,
       // blogs page show firewokrs animation
       showFireworksAnimation: false,
@@ -91,7 +92,7 @@ async function config() {
         dark: "vitesse-dark",
       },
       codeTransformers: [transformerTwoslash()],
-      config: (md) => {
+      config: (md: any) => {
         md.use(mathjax3);
       },
     },
@@ -102,4 +103,10 @@ async function config() {
     // },
   };
 }
+
+export type Config = SiteData<
+  Awaited<ReturnType<typeof config>>["themeConfig"]
+> &
+  Awaited<ReturnType<typeof config>>;
+
 export default config();

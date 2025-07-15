@@ -53,9 +53,9 @@ import { useData, withBase } from "vitepress";
 import { initTags } from "../utils";
 
 const { theme } = useData();
-const data = computed(() => initTags(theme.value.posts));
-let selectTag = ref("");
-const toggleTag = (tag: string) => {
+const data = computed<Record<any, any>[]>(() => initTags(theme.value.posts));
+const selectTag = ref<string | number>("");
+const toggleTag = (tag: string | number) => {
   selectTag.value = tag;
 };
 // set font-size
@@ -64,7 +64,6 @@ const getFontSize = (length: number) => {
   return { fontSize: `${size}em` };
 };
 </script>
-
 <style scoped>
 .main {
   margin: 0 auto;

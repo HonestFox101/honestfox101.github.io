@@ -11,6 +11,16 @@
     },
     "items": [
         {
+            "content_html": "<h1>概述</h1>\n<p>typing.Annotated 是 Python 3.9 引入的一个类型提示工具，允许开发者为类型添加元数据。元数据可以是任何对象，通常用于提供额外的上下文信息，例如文档字符串、验证规则或其他说明。</p>\n<h1>示例代码</h1>\n<p>以下为类Pydantic的示例。</p>\n<pre><code class=\"language-python\">from typing import Annotated, get_type_hints, get_origin, get_args\n\nclass User:\n    id: Annotated[str, &quot;This is a metadata&quot;]\n\n# 获取类型提示，包括额外信息\ntype_hints = get_type_hints(User, include_extras=True)\nprint(type_hints)  # {'id': typing.Annotated[str, 'This is a metadata']}\n\n# 检查类型的原始类型和参数\nprint(get_origin(type_hints[&quot;id&quot;]) is Annotated and get_args(type_hints[&quot;id&quot;])) \n# 输出: (&lt;class 'str'&gt;, 'This is a metadata')\n\n# 访问元数据\nprint(type_hints[&quot;id&quot;].__metadata__)  # ('This is a metadata',)\n</code></pre>\n",
+            "url": "https://clark-cui.top/posts/python typing.Annotated 用法示例.html",
+            "title": "python typing.Annotated 用法示例",
+            "date_modified": "2025-07-15T00:00:00.000Z",
+            "author": {
+                "name": "Magic Bubble!",
+                "url": "https://clark-cui.top"
+            }
+        },
+        {
             "content_html": "<p>2025年冒个泡。</p>\n",
             "url": "https://clark-cui.top/posts/冒个泡.html",
             "title": "冒个泡",

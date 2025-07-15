@@ -1,7 +1,7 @@
 on: push # 触发此文件运行的条件
 name: CI/CD # 此工作流程（workflow）的名字
 jobs:
-  FTP-Deploy-Action:
+  Blog-Deploy-Action:
     name: CI&CD # 此任务（job）的名字
     runs-on: ubuntu-latest # 运行环境
     steps:
@@ -18,7 +18,6 @@ jobs:
         run: npm i pnpm -g
 
       - name: Install Dependencies
-        # if: steps.cache.outputs.cache-hit != 'true' # 如果没有缓存的话
         run: pnpm i
 
       - name: Build Packages

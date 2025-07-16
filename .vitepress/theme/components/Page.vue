@@ -27,15 +27,16 @@ import { ref } from "vue";
 import ShareCard from "./ShareCard.vue";
 import FireWorksAnimation from "./FireWorksAnimation.vue";
 import { useData, withBase } from "vitepress";
-const { theme } = useData();
+const data = useData();
+const theme = data.theme.value!;
 
-type Post = typeof theme.value.posts[0]
+type Post = (typeof theme.posts)[0];
 // get posts
-let postsAll = theme.value.posts || ([] as Post[]);
+let postsAll: Post[] = theme!.posts || [];
 // get postLength
-let postLength = theme.value.postLength;
+let postLength = theme!.postLength;
 // get pageSize
-let pageSize = theme.value.pageSize;
+let pageSize = theme!.pageSize;
 
 //  pagesNum
 let pagesNum =
@@ -46,7 +47,7 @@ pagesNum = parseInt(pagesNum.toString());
 //pageCurrent
 let pageCurrent = ref(1);
 // filter index post
-postsAll = postsAll.filter((item) => {
+postsAll = postsAll.filter((item: Post) => {
   return item.regularPath.indexOf("index") < 0;
 });
 // pagination

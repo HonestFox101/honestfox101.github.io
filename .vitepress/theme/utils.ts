@@ -2,18 +2,20 @@ type Post = {
   frontMatter: {
     date?: string;
     title?: string;
-    tags?: string[];
+    tags?: string[] | string;
     description?: string;
   };
   regularPath: string;
 };
 
 export function initTags(post: Post[]) {
-  const data: any = {};
+  const data: { [tag: string]: Post[] } = {};
   for (let i = 0; i < post.length; i++) {
     const element = post[i];
-    const tags = element.frontMatter.tags;
-    // tags是数组，需要tags按照数组语法的格式书写
+    let tags = element.frontMatter.tags;
+    if (typeof tags === "string") {
+      tags = [tags];
+    }
     if (Array.isArray(tags)) {
       tags.forEach((item) => {
         if (!data[item]) {
@@ -27,7 +29,7 @@ export function initTags(post: Post[]) {
 }
 
 export function useYearSort(post: Post[]) {
-  const data = [];
+  const data = [] as Post[][];
   let year = "0";
   let num = -1;
   for (let index = 0; index < post.length; index++) {

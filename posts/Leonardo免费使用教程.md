@@ -1,7 +1,8 @@
 ---
 title: Leonardo免费使用教程
 date: 2022-11-05 15:06:25
-tags: 软件分享
+tags: 
+- 软件分享
 ---
 ![leonardo](/images/leonardo.png)
 # 前言

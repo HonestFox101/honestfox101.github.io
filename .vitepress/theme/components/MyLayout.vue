@@ -2,7 +2,6 @@
   <Layout>
     <template #doc-before>
       <Title />
-      <Category />
     </template>
     <template #doc-after>
       <div>
@@ -21,7 +20,6 @@ import DefaultTheme from "vitepress/theme";
 import HomeHero from "./HomeHero.vue";
 import CopyWright from "./CopyWright.vue";
 import Page from "./Page.vue";
-import Category from "./Category.vue";
 import Title from "./Title.vue";
 const { Layout } = DefaultTheme;
 const back = () => {

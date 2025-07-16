@@ -1,0 +1,12 @@
+{
+  "include": [
+    "./.vitepress/config.ts",
+    "./.vitepress/theme/serverUtils.ts",
+  ],
+  "compilerOptions": {
+    "composite": true,
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
+    "strict": true,
+  }
+}

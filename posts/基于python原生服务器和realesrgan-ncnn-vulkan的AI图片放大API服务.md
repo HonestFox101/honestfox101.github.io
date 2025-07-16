@@ -1,7 +1,7 @@
 ---
 title: 基于python原生服务器和realesrgan-ncnn-vulkan的AI图片放大API服务
 date: 2023-08-20 10:00:00
-tags: python
+tags: Python
 ---
 # 介绍
 通过python原生的模块http.server，将realesrgan-ncnn-vulkan.exe命令行工具包装成API

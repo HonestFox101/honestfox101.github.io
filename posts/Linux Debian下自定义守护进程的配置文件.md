@@ -1,7 +1,8 @@
 ---
 title: Linux Debian下自定义守护进程的配置文件
 date: 2022-10-05 00:00:00
-tags: Linux
+tags: 
+- Linux
 ---
 # 文件位置
 systemd有系统和用户区分；系统（/user/lib/systemd/system/）、用户（/etc/lib/systemd/user/），一般系统管理员手工创建的单元文件存放在/etc/systemd/system/目录下面。

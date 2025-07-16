@@ -3,8 +3,8 @@
     <h1 class="tags-header">Tags</h1>
     <div class="tags">
       <span
+        v-for="[key] in Object.entries(data)"
         @click="toggleTag(key)"
-        v-for="(item, key) in data"
         class="tag"
         :style="getFontSize(data[key].length)"
         :class="{ activetag: selectTag === key }"
@@ -53,9 +53,9 @@ import { useData, withBase } from "vitepress";
 import { initTags } from "../utils";
 
 const { theme } = useData();
-const data = computed<Record<any, any>[]>(() => initTags(theme.value.posts));
-const selectTag = ref<string | number>("");
-const toggleTag = (tag: string | number) => {
+const data = computed(() => initTags(theme.value!.posts));
+const selectTag = ref<string>("");
+const toggleTag = (tag: string) => {
   selectTag.value = tag;
 };
 // set font-size

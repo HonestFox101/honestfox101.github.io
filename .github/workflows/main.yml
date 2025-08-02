@@ -1,24 +1,26 @@
-on: push # 触发此文件运行的条件
-name: CI/CD # 此工作流程（workflow）的名字
+on: push
+name: Build Blog
 jobs:
-  Blog-Deploy-Action:
-    name: CI&CD # 此任务（job）的名字
+  build:
     runs-on: ubuntu-latest # 运行环境
     steps:
       - uses: actions/checkout@master
         with:
           fetch-depth: 2
 
-      - name: Use Node.js 22.x
-        uses: actions/setup-node@v3.9.1
+      - name: Setup Pnpm
+        uses: pnpm/action-setup@v4.1.0
         with:
-          node-version: '22.x'
+          run_install: false
 
-      - name: Install pnpm
-        run: npm i pnpm -g
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'pnpm'
 
-      - name: Install Dependencies
-        run: pnpm i
+      - name: Install dependencies
+        run: pnpm install
 
       - name: Build Packages
         run: pnpm run build

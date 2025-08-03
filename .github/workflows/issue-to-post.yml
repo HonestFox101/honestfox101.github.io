@@ -1,0 +1,32 @@
+name: Convert Issue to Post
+on:
+  issues:
+    types: [labeled, edited]
+permissions:
+  contents: write
+jobs:
+  convert-issue-to-post:
+    runs-on: ubuntu-latest
+    if: contains(github.event.issue.labels.*.name, 'post') && github.event.issue.user.login == github.repository_owner
+    steps:
+      - name: Log issue details
+        run: echo "Issue ${{ github.event.issue.number }} was ${{github.event.action }}."
+
+      - name: Checkout repository
+        uses: actions/checkout@master
+
+      - name: Create markdown file from issue
+        run: |
+          ISSUE_TITLE="${{ github.event.issue.title }}"
+          ISSUE_BODY="${{ github.event.issue.body }}"
+          ISSUE_NUMBER="${{ github.event.issue.number }}"
+          POST_FILE="posts/${{ github.event.issue.title }}.md"
+          echo "${ISSUE_BODY}" > $POST_FILE
+          echo "" >> $POST_FILE
+      
+      - name: Commit and push changes
+        uses: stefanzweifel/git-auto-commit-action@v6
+        with:
+          commit_message: "Auto generate post from issue #${{ github.event.issue.title }}"
+          file_pattern: "posts/${{ github.event.issue.title }}.md"
+

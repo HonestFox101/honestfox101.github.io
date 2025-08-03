@@ -7,7 +7,7 @@ const themeConfig: DefaultTheme.Config & Record<string, unknown> = {
   // repo: "clark-cui/homeSite",
   outline: [1, 2],
   aside: true,
-  logo: "/horse.svg",
+  logo: "/favicon.ico",
   avator: "https://avatars.githubusercontent.com/u/76041876?v=4",
   search: {
     provider: "local",
@@ -42,8 +42,7 @@ const config = defineConfigWithTheme({
       "link",
       {
         rel: "icon",
-        type: "image/svg",
-        href: "/horse.svg",
+        href: "/favicon.ico",
       },
     ],
     [

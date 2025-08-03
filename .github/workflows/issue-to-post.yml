@@ -2,10 +2,11 @@ name: Convert Issue to Post
 on:
   issues:
     types: [labeled, edited]
-permissions:
-  contents: write
 jobs:
   convert-issue-to-post:
+    permissions:
+      contents: write
+      id-token: write
     runs-on: ubuntu-latest
     if: contains(github.event.issue.labels.*.name, 'post') && github.event.issue.user.login == github.repository_owner
     steps:
@@ -14,19 +15,56 @@ jobs:
 
       - name: Checkout repository
         uses: actions/checkout@master
+        with:
+          ref: ${{ github.head_ref }}
 
-      - name: Create markdown file from issue
+      - name: Generate markdown file
+        shell: bash
         run: |
-          ISSUE_TITLE="${{ github.event.issue.title }}"
-          ISSUE_BODY="${{ github.event.issue.body }}"
-          ISSUE_NUMBER="${{ github.event.issue.number }}"
-          POST_FILE="posts/${{ github.event.issue.title }}.md"
-          echo "${ISSUE_BODY}" > $POST_FILE
-          echo "" >> $POST_FILE
-      
+          mkdir -p posts/
+          cat <<'EOF' > posts/"${{ github.event.issue.title }}.md"
+          ${{ github.event.issue.body }}
+          EOF
+
       - name: Commit and push changes
         uses: stefanzweifel/git-auto-commit-action@v6
         with:
           commit_message: "Auto generate post from issue #${{ github.event.issue.title }}"
-          file_pattern: "posts/${{ github.event.issue.title }}.md"
+          file_pattern: "posts/*.md"
 
+      - name: Setup Pnpm
+        uses: pnpm/action-setup@v4.1.0
+        with:
+          run_install: false
+          version: latest
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: "pnpm"
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build Packages
+        run: pnpm run build
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .vitepress/dist
+
+  deploy:
+    needs: convert-issue-to-post
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    permissions:
+      pages: write
+      id-token: write
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

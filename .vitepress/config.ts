@@ -19,15 +19,15 @@ const themeConfig: DefaultTheme.Config & Record<string, unknown> = {
   postLength: await getPostLength(),
   nav: [
     {
-      text: "🏡Blogs",
+      text: "Blogs",
       link: "/",
     },
     {
-      text: "🔖Tags",
+      text: "Tags",
       link: "/tags",
     },
     {
-      text: "📃Archives",
+      text: "Archives",
       link: "/archives",
     },
   ],
@@ -73,7 +73,7 @@ const config = defineConfigWithTheme({
   themeConfig: themeConfig,
   markdown: {
     theme: {
-      light: "github-light-default",
+      light: "one-light",
       dark: "vitesse-dark",
     },
     codeTransformers: [transformerTwoslash() as any],

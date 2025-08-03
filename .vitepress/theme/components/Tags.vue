@@ -89,7 +89,9 @@ const getFontSize = (length: number) => {
 }
 .tag {
   display: inline-block;
-  margin: 6px 8px;
+  padding: 3px 4px;
+  margin: 3px 4px;
+  border-radius: 10px;
   font-size: 0.85em;
   line-height: 25px;
   transition: 0.4s;
@@ -98,9 +100,11 @@ const getFontSize = (length: number) => {
 }
 .tag:hover {
   color: var(--vp-c-hover);
+  background: var(--vp-c-blog-bg);
 }
 .activetag {
   color: var(--vp-c-hover);
+  background: var(--vp-c-blog-bg);
 }
 .tag-length {
   color: var(--vp-c-brand);

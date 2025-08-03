@@ -35,6 +35,9 @@ importers:
       gray-matter:
         specifier: ^4.0.3
         version: 4.0.3
+      lxgw-wenkai-lite-webfont:
+        specifier: ^1.7.0
+        version: 1.7.0
       markdown-it:
         specifier: ^14.1.0
         version: 14.1.0
@@ -945,6 +948,9 @@ packages:
 
   longest-streak@3.1.0:
     resolution: {integrity: sha512-9Ri+o0JYgehTaVBBDoMqIl8GXtbWg711O3srftcHhZ0dqnETqLaoIK0x17fUw9rFSlK/0NlsKe0Ahhyl5pXE2g==}
+
+  lxgw-wenkai-lite-webfont@1.7.0:
+    resolution: {integrity: sha512-VcQYNRpdXAxaZsJ18rfT1mmAreGqkIFNZ/9pdVLbT2Tkb+2lLWJDXq4zYxMEk9AcecSnxO31R2LHh5ieLlxjRg==}
 
   magic-string@0.30.17:
     resolution: {integrity: sha512-sNPKHvyjVf7gyjwS4xGTaW/mCnF8wnjtifKBEhxfZ7E/S8tQ0rssrwGNn6q8JH/ohItJfSQp9mBtQYuTlH5QnA==}
@@ -2296,6 +2302,8 @@ snapshots:
       uc.micro: 2.1.0
 
   longest-streak@3.1.0: {}
+
+  lxgw-wenkai-lite-webfont@1.7.0: {}
 
   magic-string@0.30.17:
     dependencies:

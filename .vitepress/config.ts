@@ -73,7 +73,7 @@ const config = defineConfigWithTheme({
   themeConfig: themeConfig,
   markdown: {
     theme: {
-      light: "vitesse-light",
+      light: "github-light-default",
       dark: "vitesse-dark",
     },
     codeTransformers: [transformerTwoslash() as any],

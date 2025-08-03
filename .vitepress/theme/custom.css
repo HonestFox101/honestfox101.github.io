@@ -1,15 +1,16 @@
-@import url("https://cdn.jsdelivr.net/npm/lxgw-wenkai-lite-webfont@1.6.0/style.min.css");
 :root {
-  --vp-c-brand: #a27b5c;
-  --vp-c-brand-light: #a27b5c;
-  --vp-c-brand-dark: #a27b5c;
-  --vp-c-hover: #212121;
-  --vp-c-bg: #faf6f1;
+  --vp-c-brand: #1b4d68;
+  --vp-c-brand-light: #e0f4fc;
+  --vp-c-brand-dark: #383f4a;
+  --vp-c-hover: #111111;
+  --vp-c-bg: #e0f4fc;
+  --vp-c-blog-bg: #B1E3FA;
+  --vp-c-code: #B1E3FA;
   --vp-c-bg-alpha-with-backdrop: rgba(250, 246, 241, 0.7);
 
   --vp-c-color-b: #26ccff;
   --vp-c-color-c: #0cb9ed;
-  --vp-c-color-d: #a15000;
+  --vp-c-color-d: #383f4a;
   --vp-c-color-e: #ed7c0c;
 
   --vp-font-family-base: "LXGW WenKai Lite", "Inter var experimental",
@@ -20,13 +21,21 @@
     monospace;
   --vp-avator-border: #ffffff;
 }
+
 .dark {
+  --vp-c-brand: #e0f4fc;
+  --vp-c-brand-dark: #e0f4fc;
   --vp-c-bg: #2c3639;
+  --vp-c-blog-bg: #2c3639;
   --vp-c-text: white;
+  --vp-c-code: #0e0e0e;
   --vp-c-hover: #ffffff;
+
+  --vp-c-color-d: #ffffff;
   --vp-c-bg-alpha-with-backdrop: rgba(44, 54, 57, 0.7);
   --vp-avator-border: #3f4e4f;
 }
+
 #app {
   min-height: 100vh;
   position: relative;
@@ -43,4 +52,8 @@
 
 .VPDocOutlineDropdown {
   display: none !important;
+}
+
+.vp-doc [class*='language-'] pre.vp-code {
+  background: var(--vp-c-code);
 }

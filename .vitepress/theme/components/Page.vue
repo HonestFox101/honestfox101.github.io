@@ -151,10 +151,10 @@ const transDate = (date: string) => {
   border-radius: 10px;
   padding: 0 20px;
   margin: 10px;
-  background: var(--vp-c-bg);
+  background: var(--vp-c-blog-bg);
   max-width: 600px;
   box-shadow: 6px 6px var(--vp-c-brand);
-  border: 4px solid #3f4e4f;
+  border: 1px solid var(--vp-c-brand-dark);
   cursor: pointer;
 }
 .blog:hover {
@@ -163,7 +163,7 @@ const transDate = (date: string) => {
   box-shadow: 10px 10px var(--vp-c-brand);
 }
 .title {
-  color: var(--vp-c-brand-light);
+  color: var(--vp-c-text-1);
   font-size: 1.2em;
   font-weight: bold;
 }
@@ -183,7 +183,7 @@ const transDate = (date: string) => {
 button {
   display: inline-block;
   position: relative;
-  color: var(--vp-c-color-d);
+  color: var(--vp-c-text-1);
   cursor: pointer;
   font-size: 1.2em;
   font-weight: bold;

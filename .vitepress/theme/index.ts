@@ -3,9 +3,9 @@ import Archives from "./components/Archives.vue";
 import Tags from "./components/Tags.vue";
 import MyLayout from "./components/MyLayout.vue";
 import TwoslashFloatingVue from "@shikijs/vitepress-twoslash/client";
+import "lxgw-wenkai-lite-webfont/style.css"
 import "@shikijs/vitepress-twoslash/style.css";
 import type { EnhanceAppContext } from "vitepress";
-
 import "./custom.css";
 
 export default {

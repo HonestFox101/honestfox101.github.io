@@ -93,7 +93,7 @@ const getFontSize = (length: number) => {
   font-size: 0.85em;
   line-height: 25px;
   transition: 0.4s;
-  color: #a1a1a1;
+  color: var(--vp-c-brand-dark);
   cursor: pointer;
 }
 .tag:hover {

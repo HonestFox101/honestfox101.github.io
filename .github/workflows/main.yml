@@ -1,13 +1,21 @@
-on: push
+on:
+  push:
+    branches: [$default-branch]
 name: Build Blog
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+concurrency:
+  group: "pages"
 jobs:
   build:
-    runs-on: ubuntu-latest # 运行环境
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
         with:
           fetch-depth: 2
-
+      
       - name: Setup Pnpm
         uses: pnpm/action-setup@v4.1.0
         with:
@@ -26,10 +34,18 @@ jobs:
       - name: Build Packages
         run: pnpm run build
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: .vitepress/dist
-          publish_branch: gh-pages
+          path: .vitepress/dist
 
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

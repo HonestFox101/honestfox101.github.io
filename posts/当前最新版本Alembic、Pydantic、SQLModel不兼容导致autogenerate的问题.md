@@ -15,9 +15,7 @@ tags:
 ### 发现经过
 升级Python依赖后，执行命令`alembic revision -m "<message>" --autogenerate`报错。
 
-<details>
-<summary>点击查看Stacktrace</summary>
-<code>
+```
 Traceback (most recent call last):
   File "/Users/honestfox101/code-space/lehi-service/.venv/bin/alembic", line 8, in <module>
     sys.exit(main())
@@ -97,8 +95,7 @@ Traceback (most recent call last):
     ...<3 lines>...
     )
 sqlalchemy.exc.ArgumentError: Mapper Mapper[WebsiteEnum(website_enum)] could not assemble any primary key columns for mapped table 'website_enum'
-</code>
-</details>
+```
 
 ### 问题分析
 根据报错断点调试，SQLModel的Field并没有被读取Alembic或SQLAlchemy正确地读取到Column信息。
